@@ -212,13 +212,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 110500534}
+  - component: {fileID: 110500535}
   m_Layer: 5
   m_Name: 1P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &110500534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -242,6 +243,22 @@ RectTransform:
   m_AnchoredPosition: {x: 125, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &110500535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110500533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d52fcb9ec383c64a810ba70d9825f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addButton: {fileID: 554234653}
+  subButton: {fileID: 1840300659}
+  countText: {fileID: 514320674}
+  executeButton: {fileID: 168250250}
 --- !u!1 &124188946
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,9 +657,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf2893c74100094f9a0283b5a9cd5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baloonCount: {fileID: 1770050450}
+  turnText: {fileID: 1589484152}
   getTurnRoot: {fileID: 515707480}
-  turnText: {fileID: 1222155}
-  debugPanel: {fileID: 416905967}
+  playerTurnText: {fileID: 1222155}
+  ratioSelectCounter:
+  - {fileID: 110500535}
+  - {fileID: 398624937}
+  resultRoot: {fileID: 249653220}
+  resultText: {fileID: 1745594625}
 --- !u!1 &249653220
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,13 +874,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 398624936}
+  - component: {fileID: 398624937}
   m_Layer: 5
   m_Name: 2P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &398624936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -881,6 +905,22 @@ RectTransform:
   m_AnchoredPosition: {x: -125, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &398624937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398624935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d52fcb9ec383c64a810ba70d9825f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addButton: {fileID: 336384920}
+  subButton: {fileID: 1542555825}
+  countText: {fileID: 583719429}
+  executeButton: {fileID: 653435950}
 --- !u!1 &416905967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,6 +2536,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566280025}
   m_CullTransparentMesh: 1
+--- !u!1 &1589484150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589484151}
+  - component: {fileID: 1589484153}
+  - component: {fileID: 1589484152}
+  m_Layer: 5
+  m_Name: TurnText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1589484151
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589484150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1688808049}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 75}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1589484152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589484150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 36
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "1\u30BF\u30FC\u30F3\u76EE"
+--- !u!222 &1589484153
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589484150}
+  m_CullTransparentMesh: 1
 --- !u!1 &1663851523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2721,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1589484151}
   - {fileID: 1770050449}
   - {fileID: 515707481}
   - {fileID: 184563255}
@@ -3086,6 +3207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b0c799bef1e64caa0fbfeb8c61c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baloonController: {fileID: 2039363910}
   uiContoller: {fileID: 242025744}
 --- !u!4 &1890923752
 Transform:
@@ -3439,7 +3561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159a2fe172d84a146851422e3f133fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testAddButton: {fileID: 124188948}
   baloon: {fileID: 2039363905}
   baloonSizeMin: 3
   baloonSizeMax: 14

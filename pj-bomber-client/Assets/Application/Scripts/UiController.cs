@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Bomber;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,19 +11,38 @@ namespace Baloon
         private Text baloonCount;
 
         [SerializeField]
+        private Text turnText;
+
+        [SerializeField]
         private GameObject getTurnRoot;
 
         [SerializeField]
-        private Text turnText;
+        private Text playerTurnText;
+
+        [SerializeField]
+        private RatioSelectCounter[] ratioSelectCounter;
+        public RatioSelectCounter[] RatioSelectCounter => ratioSelectCounter;
+
+        [SerializeField]
+        private GameObject resultRoot;
+
+        [SerializeField]
+        private Text resultText;
 
         private void Start()
         {
-
+            getTurnRoot.SetActive(false);
+            resultRoot.SetActive(false);
         }
 
-        private void SetBuloonCount(int count)
+        public void SetBuloonCountText(int count)
         {
             baloonCount.text = count.ToString();
+        }
+
+        public void SetTurnText(int turnCount)
+        {
+            turnText.text = $"{turnCount}ターン目";
         }
 
         private void HideBaloonCount()
@@ -32,7 +52,7 @@ namespace Baloon
 
         public void ShowGetTurnText(int playerNum)
         {
-            turnText.text = $"{playerNum}Pのターン";
+            playerTurnText.text = $"{playerNum}Pのターン";
             getTurnRoot.SetActive(true);
         }
 
@@ -41,5 +61,20 @@ namespace Baloon
             getTurnRoot.SetActive(false);
         }
 
+        public void ShowRatioSelectCounter(int playerNum)
+        {
+            ratioSelectCounter[playerNum - 1].gameObject.SetActive(true);
+        }
+
+        public void HideRatioSelectCounter(int playerNum)
+        {
+            ratioSelectCounter[playerNum - 1].gameObject.SetActive(false);
+        }
+
+        public void ShowResult(int playerNum)
+        {
+            resultRoot.SetActive(true);
+            resultText.text = $"{playerNum}Pの勝ち";
+        }
     }
 }

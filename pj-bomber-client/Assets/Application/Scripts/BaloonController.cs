@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace Bomber
 {
@@ -10,9 +11,6 @@ namespace Bomber
     /// </summary>
     public class BaloonController : MonoBehaviour
     {
-        [SerializeField]
-        private Button testAddButton;
-
         [SerializeField]
         private Baloon baloon;
 
@@ -25,32 +23,23 @@ namespace Bomber
         [SerializeField]
         private int explosionCount = 100;
 
-        private int counter = 0;
+        private float counter = 0;
+        public float Counter => counter;
+
+        public bool IsExplosion => counter >= explosionCount;
 
         private void Start()
         {
-            testAddButton.OnClickAsObservable()
-                .Subscribe(_ => Add())
-                .AddTo(this);
-
             baloon.Initialize(baloonSizeMin);
         }
 
-        public void Add()
+        public void Add(int ratio, int daiceNum)
         {
             int subtractSize = baloonSizeMax - baloonSizeMin;
             float scaleRatio = (float)subtractSize / (float)explosionCount;
 
-            if(counter < explosionCount)
-            {
-                counter++;
-            }
-            else
-            {
-                return;
-            }
-
-            baloon.UpdateScale(scaleRatio);
+            counter += ratio + daiceNum;
+            baloon.UpdateScale(baloonSizeMin + (counter * scaleRatio));
         }
     }
 }

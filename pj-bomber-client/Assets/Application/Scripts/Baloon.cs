@@ -17,7 +17,7 @@ namespace Bomber
 
         public void UpdateScale(float scaleRatio)
         {
-            transform.localScale += new Vector3(scaleRatio, scaleRatio, 0);
+            transform.localScale = new Vector3(scaleRatio, scaleRatio, 0);
         }
     }
 }
